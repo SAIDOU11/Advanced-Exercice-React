@@ -22,6 +22,10 @@ form > input {
   margin-bottom: 1em;
 }
 
+form > input:focus {
+  outline: 4px solid #f43f5e;
+}
+
 form > button {
   border-radius: 5px;
   border: none;
