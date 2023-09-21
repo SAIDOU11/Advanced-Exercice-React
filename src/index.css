@@ -1,6 +1,47 @@
-.box {
-  height: 200px;
-  width: 200px;
-  background-color: firebrick;
-  border: 1px solid darkred;
+body {
+  margin: 0;
+  padding: 0.62em;
+  background-color: #ddeae1;
+  font-family: 'Courier New', Courier, monospace;
+}
+.products-list {
+  display: grid;
+  gap: 0.62em;
+  grid-template-columns: repeat(auto-fill, minmax(200, 1fr));
+}
+
+.product-card {
+  border: 1px solid #888;
+  padding: 0.31em;
+  border-radius: 0.31em;
+  background-color: whitesmoke;
+}
+
+.product-card:hover {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.button {
+  min-width: 3em;
+  padding: 0.3em 0.5em;
+  background-color: #b6d7a8;
+  border: 1px solid #888;
+  border-radius: 0.31em;
+  margin-right: 0.62em;
+  cursor: pointer;
+}
+
+button:active {
+  outline: 2px solid blue;
+}
+
+.button:hover {
+  background-color: #93c47d;
 }
