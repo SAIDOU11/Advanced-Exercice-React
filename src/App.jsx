@@ -14,6 +14,13 @@ const App = () => {
     setCount((prevCount) => prevCount - 1);
   };
 
+  const productStyles = useMemo(() => {
+    return {
+      backgroundColor: darkMode ? '#2b283a' : 'whitesmoke',
+      color: darkMode ? 'white' : '#2b283a',
+    };
+  }, [darkMode]);
+
   return (
     <>
       <h1>The current count is {count} </h1>
@@ -32,7 +39,7 @@ const App = () => {
       <br />
       <div className="products-list">
         {productsData.map((product) => (
-          <Product key={product.id} product={product} darkMode={darkMode} />
+          <Product key={product.id} product={product} style={productStyles} />
         ))}
       </div>
     </>
