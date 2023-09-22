@@ -4,7 +4,7 @@ import productsData from './data.jsx';
 
 const App = () => {
   const [count, setCount] = useState(0);
-  const [sort, setSort] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   const increment = () => {
     setCount((prevCount) => prevCount + 1);
@@ -13,34 +13,6 @@ const App = () => {
   const decrement = () => {
     setCount((prevCount) => prevCount - 1);
   };
-
-  // const startTime1 = Date.now();
-
-  // const sortedProducts = [...productsData].sort((a, b) =>
-  //   a.name.localeCompare(b.name)
-  // );
-
-  // const endTime1 = Date.now();
-  // console.log(`Took ${endTime1 - startTime1}ms `);
-
-  const startTime2 = Date.now();
-
-  /**
-   * Challenge: memoize the sorting calculation of sortedProducts
-   * so that it only happens if the value of "sort" changes.
-   *
-   * Make sure to comment out the version
-   * above when testing your version here
-   */
-
-  const sortedProducts = useMemo(() => {
-    return [...productsData].sort((a, b) => a.name.localeCompare(b.name));
-  }, [productsData]);
-
-  const endTime2 = Date.now();
-  console.log(`Took ${endTime2 - startTime2}ms`);
-
-  const visibleProducts = sort ? sortedProducts : productsData;
 
   return (
     <>
@@ -53,14 +25,14 @@ const App = () => {
       </button>{' '}
       <br />
       <br />
-      <button onClick={() => setSort((prev) => !prev)} className="button">
-        {sort ? 'Unsort' : 'Sort'}
+      <button onClick={() => setDarkMode((prev) => !prev)} className="button">
+        {darkMode ? 'Light' : 'Dark'}
       </button>
       <br />
       <br />
       <div className="products-list">
-        {visibleProducts.map((product) => (
-          <Product key={product.id} product={product} />
+        {productsData.map((product) => (
+          <Product key={product.id} product={product} darkMode={darkMode} />
         ))}
       </div>
     </>

@@ -1,8 +1,6 @@
-const slowCountItems = (data, ms) => {
+const sleep = (ms) => {
   const wakeUpTime = Date.now() + ms;
   while (Date.now() < wakeUpTime) {}
-
-  return data.length;
 };
 
-export { slowCountItems };
+export default sleep;
